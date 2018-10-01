@@ -9,7 +9,7 @@
 			(context || document).querySelectorAll(selector)
 		);
 	}
-	
+
 	function getClosestToggle (element) {
 		if (element.closest) {
 			return element.closest('[data-toggle]');
@@ -25,15 +25,24 @@
 
 		return null;
 	}
-	
+
 	function handleToggle (toggle) {
-		var target = toggle.getAttribute('data-toggle'),
-			className = toggle.getAttribute('data-class') || "toggle";
-		
+		if (!toggle) {
+			return false;
+		}
+
+		var target = toggle.getAttribute('data-toggle') || false;
+
+		if (!target) {
+			return false;
+		}
+
+		var className = toggle.getAttribute('data-class') || "toggle";
+
 		document.querySelector(target).classList.toggle('js-' + className);
 		document.querySelector(target).classList.toggle(className);
 
-					
+
 		var isApplied = document.querySelector(target).classList.contains(toggle.getAttribute('data-class'));
 
 		toggle.setAttribute('data-toggled', isApplied);
@@ -46,9 +55,9 @@
 
 			acc[selector] = acc[selector] || [];
 			acc[selector].push(toggle);
-			
+
 			toggle.setAttribute('data-toggled', isApplied);
-			
+
 			return acc;
 		}, togglesMap);
 	};
@@ -61,7 +70,7 @@
 		var toggle = getClosestToggle(event.target);
 		handleToggle(toggle);
 	});
-	
+
 	document.addEventListener('keyup', function (event) {
 		if (event.which === 13 || event.which === 32) {
 			var toggle = getClosestToggle(event.target);
@@ -72,5 +81,5 @@
 	});
 
 	window && (window.jsToggle = initJsToggle);
-	
+
 })();
