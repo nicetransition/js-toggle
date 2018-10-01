@@ -29,8 +29,6 @@
 	function handleToggle (toggle) {
 		var target = toggle.getAttribute('data-toggle'),
 			className = toggle.getAttribute('data-class') || "toggle";
-	
-		console.log(target);
 		
 		document.querySelector(target).classList.toggle('js-' + className);
 		document.querySelector(target).classList.toggle(className);
@@ -38,9 +36,7 @@
 					
 		var isExpanded = document.querySelector(target).classList.contains(toggle.getAttribute('data-class'));
 
-		
 		toggle.setAttribute('data-toggle-expanded', isExpanded);
-		
 	}
 
 	var initJsToggle = function (context) {
@@ -57,7 +53,6 @@
 		}, togglesMap);
 	};
 
-
 	document.addEventListener('DOMContentLoaded', function () {
 		initJsToggle();
 	});
@@ -67,7 +62,6 @@
 		handleToggle(toggle);
 	});
 	
-	
 	document.addEventListener('keyup', function (event) {
 		if (event.which === 13 || event.which === 32) {
 			var toggle = getClosestToggle(event.target);
@@ -76,7 +70,6 @@
 			}
 		}
 	});
-
 
 	window && (window.jsToggle = initJsToggle);
 	

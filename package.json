@@ -1,12 +1,11 @@
-
 {
   "name": "js-toggle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Toggle classes",
   "homepage": "https://github.com/nicetransition/js-toggle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicetransition/js-toggle.git"
+    "url": "git+https://github.com/nicetransition/js-toggle.git"
   },
   "main": "a11y-toggle.js",
   "keywords": [
@@ -17,5 +16,12 @@
   "author": "Kevin Mack <kmack@discreetaf.com>",
   "files": [
     "js-toggle.js"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/nicetransition/js-toggle/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
