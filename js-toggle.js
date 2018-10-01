@@ -34,20 +34,20 @@
 		document.querySelector(target).classList.toggle(className);
 
 					
-		var isExpanded = document.querySelector(target).classList.contains(toggle.getAttribute('data-class'));
+		var isApplied = document.querySelector(target).classList.contains(toggle.getAttribute('data-class'));
 
-		toggle.setAttribute('data-toggle-expanded', isExpanded);
+		toggle.setAttribute('data-toggled', isApplied);
 	}
 
 	var initJsToggle = function (context) {
 		togglesMap = $('[data-toggle]', context).reduce(function (acc, toggle) {
 			var selector = toggle.getAttribute('data-toggle'),
-				isExpanded = document.querySelector(selector).classList.contains(toggle.getAttribute('data-class'));
+				isApplied = document.querySelector(selector).classList.contains(toggle.getAttribute('data-class'));
 
 			acc[selector] = acc[selector] || [];
 			acc[selector].push(toggle);
 			
-			toggle.setAttribute('data-toggle-expanded', isExpanded);
+			toggle.setAttribute('data-toggled', isApplied);
 			
 			return acc;
 		}, togglesMap);
